@@ -1,0 +1,43 @@
+31
+SEPARATORS: % -> 2nd function; @ -> alpha
+ELEMENTS: %... -> special character/function; ...@... -> placeholder
+
+0 %sf
+(sf -> 2nd function)
+1 %alpha
+2 %tab
+3 %up
+4 %right
+5 %down % %bottom
+6 %left
+7 %reset % %shutdown
+8 %mode
+9 %bs % %esc
+
+
+10 @^2 @ %shift %caps
+11 %esc
+
+
+12 7 % %space @ %space
+13 8 @ a b c %@
+14 9 @ d e f
+15 ( { [ < <= | /
+16 ) } ] > >= | \
+
+17 4 @ g h i
+18 5 @ j k l
+19 6 @ m n o
+20 * %@ ^ ' " `
+21 / : %% \ ; ! ?
+
+22 1 % %% @ p q r s
+23 2 % @^(-1) @ t u v
+24 3 % pi @ w x y z
+25 + & # $ %@
+26 - = _ <= >= ~
+
+27 0
+28 , . : ; ! ?
+29 %%
+30 %enter

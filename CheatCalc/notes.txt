@@ -1,0 +1,483 @@
+%title: Spazio vettoriale
+Un spazio vettoriale e' tale se sono definite le operazioni di somma e prodotto. Es: R2
+
+%title: Sottospazio
+%tags: sotto spazio sottoinsieme insieme
+Un sottosp di V e' un sottoinsieme U non vuoto di V che e' uno spazio vett per la restrizione delle operazioni si V
+
+%title: Intersezione di sottospazi
+Se U e W sono sottospazi di V allora UnW={ v c- V / u c- U e u c- W } e' un sottospazio di V
+DIM: UnW  != vuoto perche' contiene 0v sempre. Se v1, v2 c- U n W e alpha, beta c- k
+alpha*v1+beta*v2 c- U perche' U e' sottosp
+alpha*v1+beta*v2 c- W
+quindi appartiene all'intersez, che e' sottosp di V #
+
+%title: Indipendenza lineare
+%tags:  vettori indipendenti vett ind
+I vett v1...vn di V sono lin ind se a1*v1+...an*vn=0v
+quindi a1=a2=an=0
+I vett sono dip se uno si puo' scrivere come comb lin dei rimanenti
+DIM (=>) v1..vn lin dip se esistono lamb1..lambn tc lamb1v1+..lambn*vn=0v
+c'e' qualche lamb_i!=0
+lambivi=-lamb1v1-..lambnvn [senza lambivi]
+vi=-lamb1/lambi[=a1]*v1-..n=a1v1+..anvn
+(<=)...
+
+%title: Base
+%tags: generatori indipendenti
+base = gen + ind
+Oss: Se 'V'={v1...vn} e' una base di V, allora ogni v c- V si scrive in modo unico come comb lin dei vett della base
+DIM: V=<v1...vn> quindi dato v c- V esiste a1...an c- K tc v=a1*v1+...an*vn
+Se fosse anche v = a1*v1+...an*vn avrei:
+0v=v-v=(a1*v1+...an*vn)-(b1*v1+...bn*vn)=(a1-b1)*v1+...(an-bn)*vn
+Siccome v1...vn sono ind: a1-b1=...=an-bn=0k #
+
+%title: Equazioni cartesiane
+%tags: spazio vettoriale base
+Dati v1,...vk base di V sottospazio di Rn, per trovare le eq cart:
+Applico le op di Gauss sulla matrice completa (A|b) dove A sono i vettori v messi per riga e b una colonna di coefficienti
+Le eq cart sono le espr(=0) corrispondenti alle righe = 0  di A ( quando si arriva a rango minimo)
+
+%title: Teorema di struttura
+%tags: dimensioni basi elementi lemma scambio
+Ogni sp vett V su K, V!=<0v> ha una base. Due basi di uno stesso sp vett hanno dim uguale. Inoltre V sia finitamente
+generato, cioe' esiste un insieme finito di gen per V.
+DIM: V!=<0v> 0v non e' lin ind.
+Sia V!=<0v> e v1...vn un insieme di gen per V. Ci sono due casi:
+- v1...vn sono lin ind -> esiste base #
+- v1...vn sono lin dip, quindi a1*v1+...an*vn con non tutti coeff = 0
+Posso supporre a1!=0: a1*v1=-a2*vn/a1-...-an*vn/a1  (a1!=0)
+Per cui v1 c- <v2...vn> quindi <v2...vn>=<v1,v2...vn>=V
+v2...vn sono gen di V, se sono ancora dip ripeto il processo. Siccome V!=<0> quando sono lin ind avro' una base #
+DIM due basi hanno uguale dim:
+Siano v1...vn e w1...wm de basi di V. In particolare v1...vn sono gen di V e w1... wm sono ind. Per il lemma di scambio m<=n. Ora considero w1...wm gen di V e v1...vn lin ind. Allora per il lemma anche n<=m quindi n=m #
+
+%title: Lemma di scambio
+%tags: generatori linearmente indipendenti
+Se v1...vn sono gen di V e w1...wr sono vett lin ind allora r<=n. (ogni ins di vett ind puo' essere completato ad una base)
+DIM: 0v!=w1 c- <v1...vn>=V
+w1=a1*v1+...an*vn con non tutti coeff = 0
+A meno di camb l'ordine dei vett v1...vn, supponiamo a1!=0:
+v1=w1/a1-a2*v2/a1-...-an*vn/a1
+Dunque <w1,v2...vn> _D <v1,v2...vn>=V e percio':
+w2 c- V=<w2,v2...vn>
+w2=b1*w1+...bn*vn con non tutti coeff=0
+a meno di non camb ordine suppongo b2!=0
+Quindi v2=w2/b2-b1*w1/b2-b3*w3/b2-...-br*wr/b2
+Come prima: V=<w1,v2...vn> c_ <w1,w2,v3...vn> c_ V
+overo V=<w1,w2,v3...vn>
+Il processo continua fino ad esaurire tutti gli ind w1...wr
+Se fosse n<r avrei V=<w1...wn> e w_(n+1) c- <w1...wn> e w1...w_(n+1) sono indipendenti -> assurdo #
+
+%title: Somma di due sottospazi
+U+W={u+w/u c- U, w c- W} La somma di sue sottosp e' un sottosp di V ed e' il piu' piccolo sottosp che contiene sia U che W, ovvero U+W=<UuW>
+DIM: U+W e' un sottosp perche' non vuoto, 0 c- U, 0 c- W e quindi 0+0=0 c- U+W e dati u1+w1 e u2+w2 in U+W, a1,a2 c- K
+a1(u1+w1)+a2(u2+w2)=(a1*u1+a1*w1) [c- U] +(a2*u2+a2*w2) [c- W] c- U+W
+Quindi UuW c_ U+W e ogni sottosp che contenga i vett di U e quelli di W, se e' sottosp deve contenere le loro somme #
+
+%title: Somma diretta
+%tags: sottospazi
+Due sottosp sono in somma diretta se la loro intersezione non e' banale: U1(+)U2 se U1nU2=<0> (!=vuoto)
+Ogni vettore U1(+)U2 si scrive in modo unico come somma di un vett di U1 e un vett di U2
+DIM: Sia u1+u2=u1'+u2' c- U1(+)U2 con u1,u1' c- U1; u2,u2' c- U2
+Allora u1-u1' [c- U1] =u2'-u2 [c- U2]
+Cioe' u1-u1'=u2'-u2 c- U1nU2=<0v> perche' un somma diretta
+Quindi u1-u1'=0v=u2'-u2
+Percio' ui=u1' e u2=u2' #
+
+%title: Formula di Grassmann
+Se U e W sono sottosp di uno sp vett V su K: dim(U+W)+dim(UnW)=dimU+dimW
+DIM: Sia v1...vr una base di UnW
+Per il lemma di scambio posso completare questi vettori ad una base v1...vr,u_(r+1)...us di U; v1...vr,w_(r+1)...wt di W
+dim(UnW)=r, dimU=s, dimW=t
+v1...vr,u_(r+1)...us,w_(r+1)...wt sono generatori di U+W perche' dato U+W -D u+w=(sum(xn*vn, n=1->r)+sum(xn*un, n=r+1->s))+(sum(yn*vn, n=1->r)+sum(yn*wn, n=r+1->t))=sum((xn+yn)vn, n=1->r)+sum(xn*un, n=r+1->s)+sum(yn*wn, n=r+1->t)
+v...u...w sono lin ind perche' dato sum(an*vn, n=1->r)+sum(bn*un, n=r+1->s)+sum(cn*wn, n=r+1->t) = 0
+allora [term con a e b = - term con c] => term con b  e c =0 perche' UnW si scrive in modo unico come comb lin di v1...vr
+Quindi a1v1+...arvr=0 e' possibile sse tutti gli a=0 perche' v1...vr sono lin ind. Percio' i vett v...u...w sono lin ind.
+Quindi v...u...w e' una base di U+W. Percio' dim(U+W)=s+t-r -> dim(U+W)=dimU+dimW-dim(UnW) #
+
+%title: Applicazioni lineari
+Se f:V-> W e' lineare allora f(0v)=0w
+DIM: f(0v)=f(0v+0v)=f(0v)+f(0v) [f e' lineare]
+Sommo -f(0v) ad ambo i membri e trovo 0w=f(0v) #
+
+%title: Isomorfismo
+%tags: applicazione lineare biiettiva
+Un appl lin e' in isom se esiste un'appl lin g:W->V / f(g(w))=w per ogni w c- W e g(f(v))=v per ogni v c- V
+f@g e' l'identita' su w e g@f e' l'identita' su V
+isomorfismo<=>biiettiva
+
+%title: Omomorfismo
+Applicazione lineare generica.
+
+%title: Endomorfismo
+Isomorfismo che ha lo spazio di partenza e di destinazione uguali
+
+%% altro sul pdf 9
+
+%title: Nucleo
+%tags: kernel sistema associato
+Una base del ker si trova risolvendo il sis associato ad: A*x=0 e assegnando valori arbitrari alle variabili non definite
+
+%title: Proprieta' nucleo e immagine
+%tags: kernel
+Sia f:V->W appl lin:
+- ker f e' sottosp vett di V e Im f e' sottosp vett di W
+DIM: 0v c- ker f e se v1, v2 c- ker f e a1,a2 c- KerAf(a1v1+a2v2)=a1(f(v1))+a2(f(v2)) perche' f appl lin
+=a1*0w+a2*0w=0w
+Dunque a1v1+a2v2 c- ker f = sottosp
+0w=f(0v) c- Im f
+Se prendo due vett w1,w2 c- Im f e a1,a2 c- K
+w1=f(v1), w=f(v2) con v1,v2 c- U1 e quindi a1w1+a2w2 = a1*f(v1)+a2*f(v2)=f(a1v1+a2v2) c- Im f
+Quindi f e' sottosp vett #
+f e' iniettiva <=> ker f = <0v>
+DIM (=>) Se f iniettiva e v!=0v allora f(v)!=f(0v)=0w e quindi ker(f)=<0v> #
+(<=) Se f(v1)=f(v2) con v1!=v2 (f non iniettiva) allora f(v1-v2)=f(v1)-f(v2)=0w
+quindi 0v!=v1-v2 c- ker f #
+
+
+%title: Immagine
+%tags: rango rk gauss
+Le col di A sono i gen della f associata. Una base dell'Im sono i vett corrisp ai pivot trovati con gauss (colonne)
+Oppure scelgo ad occhio le colonne lin ind della matrice
+
+%title: Formula delle dimensioni
+%tags: kernel immagine nucleo
+dim(ker f)+dim(Im f)=dim V
+DIM: Siam k=dim(ker f) e siano v1...vk una base di ker f
+Completiamo questi vett ad una base v1...vk,v_(k+1)...vn
+applicando f ho f(v1)=f(vk)=0w
+e siano w_(k+1)=f(vk+1),...,wn=f(vn)
+Sia w=f(v) c- Im f con v=x1*v1...xn*vn c- V
+Generatori? w=f(sum(xi*vi, i=1->n))=sum(xi*f(vi), i=1->k)[<-barrato] +sum(xi*f(vi), i=k+1->n)=0w
+Quindi w c- <w_(k+1)...wn>=Im f
+Indipendenti? 0w=a_(k+1)*w...->n= a*f(v) k+1...n=f(a*v, k+1->n)
+cioe' a_(k+1)*v...->n c- ker f
+e quindi “ =a*v 1->k perche' v1...vk e' base di ker f
+dunque v1...vk...vn e' base di V; tutti i coeff sono=0, quindi w_(k+1)...wn ind
+Dunque sono base di Im f #
+
+%title: Proprieta' applicazioni lineari
+a) Se f:V->W e' lin, f e' univoc det da f(v1)...f(vn)
+b) Scelti comunque w1...wn c- W, esiste ed e' unica l'appl lin g:V->W tc g(v1)=w1...g(wn)=wn
+DIM a): Sia v c- V. Allora v=x1v1+...xnvn con x1...xn univoc det
+Allora f(v)=f(x1v1+...n)=x1*f(v1)+...n
+Quindi f(v) e' univoc det dai vett f(v1)...f(vn) #
+DIM b): Fissiamo w1...wn c- W consideriamo l'appl che manda v=x1v1+...n c- V in g(v)=x1w1+...xnwn
+Devo verif che g sia lin
+Se v=x1v1+...n
+v'=x1v'1+...n e a,a' c- K
+av+a'v'=(ax1+a'x1')v1+...n
+g(av+a'v')=(ax1+a'x1')w1+...n=a(x1w1+...n)+a'(x'1w1+...n)=a*g(v)+a'*g(v')
+Cioe' g(v1)=w1...g(vn)=wn #
+
+%title: Rango
+%tags: rk gauss
+rk(A)= dim del sottosp gen dalle col di A =rk(f) (in genere anche =dim(Im f))
+rk(AB)<=rk A, rk B
+Si puo' trovare con le op di gauss
+
+%title: Nullita'
+null(A)=dim(KerA)=dim{x / A*x=0}
+
+%title: Matrice invertibile
+matrice A c- Mmxn(K) e' invertibile:
+- a dx se esiste B c- Mnxm(K) tc AB=1m; se n<m, rk(AB)<m IMP
+- a sx se esiste C c- Mnxm(K) tc CA=1m; se m<n IMP
+- invertibile se esiste A^-1 tc A*A^-1=1 o se ker A = <0>; m=n; appartengono al General Linear Group, di ordine n
+A nxn non e' invertibile se rk(A)<n
+
+%title: Matrice di cambiamento di base
+%tags: canonica
+alpha_v'w'(f)=alpha_ww'(id)*alpha_vw(f)*alpha_v'v(id)
+id=endomorfismo
+Date le basi B={v1...vn} e B'={v'1...v'n}:
+Trovare matrice M_B,B':
+vj=aj1*v'1+...ajn*v'n per j=1->n. i coeff si trovano risolvendo gli n sistemi (spesso ad occhio).
+M_B,B'=[[a11,a21...][a12...]...] (i coefficienti vanno messi per colonna!)
+Date la base B e la base canonica C:
+M_B,C e' la matrice avente per colonne le coordinate dei vettori di B
+M_C,B=(M_B,C)^-1 oppure metodo normale
+
+%title: Operazioni di Gauss
+%tags: inversa pivot
+Op di Gauss sulle righe equivalgono a cambiamenti di base del codominio
+Con le op di gauss sulle righe si puo' trovare l'inversa: (A|1)~(1|A^-1)
+Pivot: primo elemento non nullo della riga
+
+%title: Teorema di Rouche'-Capelli
+%tags: gauss sistema lineare R-C
+Un sis lin si puo' scrivere come (A|b). Con le op di gauss si arriva a (1|s) dove s e' sol particolare e sommato alla comb lin del ker ottengo l'insieme di sol.
+Il sis lin Ax=b con A c- M_mxn(K), b c- K^n ha sol <=> rk(A=rk(A|b)
+Il sis ha come sol un sottosp di K^n di dim=n-rk A. La sol di un sis lin e' un sottosp vett <=> Il sistema e' omogeneo (b=0)
+DIM: Risolvere il sis Ax=b significa trovare S={gamma c- K^n / f(gamma)=b}=f^-1(b) cioe' controimmagine di b
+Allora S= (vuoto se b non c- im f) or (se gamma0 c- K^n e' tc f(gamma0)=b allora S=gamma0+ker f)
+Se ker(f)=0 e b c- Im f il sis ha 1 sol
+Im f c_ K^n e' il sottosp gen dalle col di A
+Quindi b c- Im f <=> rk A=rk(A|b) #
+
+%% pdf 20 domande a risp aperta
+
+%title: Determinante
+%tags: gauss laplace
+E' una funzione multi-lineare;
+- si annulla se 2 colonne sono uguali
+- matrice id -> =1
+- se e' !=0 la mat e' invertibile (rk max)
+- det A=det(A^t)
+- det(mat triang)= prodotto termini diagonale
+Formula di Laplace:
+det A= sum(a_ij*(-1)^(i+j) *det(A_ij), j=1->n)
+Op di gauss:
+- scambio due righe -> det * -1
+- moltipl riga per scalare c -> det * c
+- somma di righe -> det invar
+
+%title: Teorema di Binet
+%tags: determinante
+det(AB)=det A * det B
+
+%title: Matrice inversa
+%tags: gauss complemento algebrico
+Con gauss: (A|1)~(1|A^-1)
+Con il det: (A*^t)/det A
+Compl agebrico a*_ij: (-1)^(i+j) * det(A_ij) con A_ij la matrice A senza riga i e col j
+
+%title: Matrici simili
+%tags: polinomio caratteristico
+A, B quadrate sono simili se esiste P c- GLn(K) tc B=P^-1*A*P
+Se A e B sono simili allora det(x*1n-A)=det(x*1n-B)
+DIM:det(x*1n-B)=...-P^-1*AP)=det(P^-1P*x...=det(P^-1*x1nP-...=det(P^-1 (x1n-A)P)=[binet] det(P^-1) [barrato] det(x1-A) detP [barrato] #
+
+%title: Matrice diagonale
+Matrice aventi termini non nulli solo sulla diagonale
+
+%title: Autovalori e autovettori
+%tags: matrice diagonale autospazi molteplicita'
+Sia V sp vett di dim n e phi:V->V lin
+Uno scalare a c- K e' autovalore per phi se esiste un vett v!=0 tc phi(v)=a*v
+In tal caso v e' autovettore per phi relativamente ad a
+Gli autovettori/autospazi si trovano con ker(A-a*id)=0 dove a e' l'autovalore
+Proprieta':
+a) autovett di phi relativi ad autoval distinti sono lin ind (ker(phi-a1*id)+...ker(phi-an*id)=0v)
+b) per ogni autoval a di phi: m_g(a)<=m_alg(a)
+DIM a): Siano v1...vr autovett rel ad a1...ar (a2a2 distinti)
+Sia c1v1+...crvr=0v
+e Applichiamo (phi-a1*id) ai due membri:
+c1(phi(v1)-a1*id*v1)+...cr(phi(vr)-a1*id*vr)=0v
+c1(a1-a1)[barrato]*v1+...cr(ar-a1)vr=0
+Applico phi-a2,...phi-a_(r-1) e trovo
+cr(ar-a1)[!=0]*...(ar-a_(r-1))[!=0][!=0 perche' sono autoval distinti]*vr[!=0]=0
+quindi cr=0
+Analogamente c1...c_(r-1)=0
+DIM b) Sia a autoval per phi e siano v1...vk base di ker(phi-a)={v c- V / phi(v)=a*v}
+1<=m_g(a)=k
+completiamo i vettori a v1...vk,v_(k+1)...vn base di V
+A=alpha_'V''V'(phi)=
+(a .. 0 |  )
+(...... | B)
+(0 .. a |  )
+--------+---
+(0 .. 0 | C)
+P_phi(x)=det(x*1n-A)=det di:
+(x-a .. 0|   )
+(........| -B)
+(0 .. x-a|   )
+---------+----
+(0 .... 0|x-C)
+[x-C ha di (n-k)*(n-k)]
+=(x-a)^k*phi(x)
+Allora m_alg(a)>=k=m_g(a) #
+
+%title: Matrice diagonalizzabile
+%tags: diagonale endomorfismo autovettori autovalori
+A c- Mn(K) si dice diagonaliz se esiste una P c- GLn tc P^-1*A*P=D (diagonale)
+P e' formato dagli autovett messi in colonna
+D e' formato dagli autoval messi sulla diagonale
+Un endomorf phi:V->V si dice diagonaliz se esiste una base di V fatta di autovett per phi
+
+%title: Teorema di Freobernius
+%tags: molteplicita' algebrica geometrica
+Sia V sp vett di dim finita su K e ph:V->V lin
+Allora phi e' diagonaliz su K <=> gli autovalori di phi sono tutti in K o per ogni autoval a m_g(a)=m_alg(a)
+DIM: Siano a1...ar autoval  a due a due distinti di phi
+ker(phi-a1) (+)...(+) ker(phi-ar) c_ V
+ha dimensione: mg(a1)+...mg(ar) [ogni termine <= a] ma(a1)+...ma(ar)=dimV #
+
+%title: Prodotto scalare
+E' una funzione bilineare e definita positiva
+
+%title: Disuguaglianza di Cauchy-Schwartz:
+Se v e w sono vett di R^n allora |v.w|<=||v||*||w||
+l'uguaglianza vale <=> v,w sono lin ind
+DIM: Se uno dei due e' =0 #
+se entrambi !=0 e il vett v+t*w, t c- R allora:
+0<=(v+tw)(v+tw)=v.v + 2T(v.w)+t^2(w.w)
+0>=delta/4=(v.w)^2-(v.v)(w.w)
+allora ||v||^2*||w||^2>=|v.w|^2
+cancellando i quadrati -> #
+
+%title: Disuguaglianza triangolare
+||x+y||<=||x||+||y||
+DIM: ||x+y||^2=(x+y)(x+y)=x.x+2xy+y.y=||x||^2+||y||^2+2xy<=...+2|xy|<=[C-S] ... +2*||x||*||y||=(||x||+||y||)^2
+cancellando i quadrati -> #
+
+%title: Vettori ortogonali
+%tags: perpendicolari prodotto scalare
+v, w c- R^n sono ortog se v.w=0
+Se v c- R^n: <v>^perp={w c- R^n / w.v=0} e' sottosp vett di R^n
+DIM: 0 c- <v>^perp quindi <0v>!=0 e siano w1,w2 c- <v>^perp e alpha1, alpha2 c- R
+(a1*w1+a2*w2).v=a1(w1.v)+a2(w2.v)=a1*0+a2*0=0
+per cio <v>^perp e' sottosp #
+Vale anche per gli spazi vett
+Se W e' sottosp di Rn di dim k allora dim_R(W^perp)=n-k
+DIM: Siano w1...wk base di W
+w1=(a11...1n1)...wk=(a1k...ank)
+x=(x1...xn) c- W^perp <=> /{x.w1=0 ... \{x.wk=0
+[sviluppo sistema]
+per il T di R-C la dim di W^perp e' n-rk{mat degli a}=n-k perche' w1...wk sono lin ind #
+Conseguenza: (W^perp)^perp=W
+
+%title: Teorema di decomposizione ortogonale
+%tags: grassmann somma diretta perpendicolari
+Preso comunque un sottosp W di R^n:
+R^n=W(+)W^perp
+DIM: Sia k=dim_R(W). Dunque n-k=dim(W^perp) [vedi DIM in “vettori orogonali”] e per la formula di grassman e' sufficiente DIM che WnW^perp=<0>
+Se x c- WnW^perp: x.x=0 => x=0 #
+
+%title: Base ortogonale e ortonormale
+Una base ortogonale in W c- Rn e' una base w1...wk c- W dove i vett sono a due a due ortogonali
+Una base ortonormale e' una base ortogonale di W tc ||w1||...||wk||=0
+Se 'V'={v1...vn} e' base O.N. in R4
+P=alpha_'V''E'(id) allora:
+1n=P^t*P; P^t=P^-1
+Una matrice quadrata P c- Mn(R) e' perp se “
+Quindi le colonne di P sono le coord di una base O.N. di Rn
+Vale anche per prodotto di matrici
+Inoltre det P=+-1 (dipende dall'handing)
+
+%title: Proiezione ortogonale
+Sia v c- Rn e W sottosp di Rn.
+per ogni vett w c- W si ha: ||v-P_w(v)||<=||v-w||
+Ovvero la proiez ortog e' il vett di W che ha la minima differenza da v
+DIM: Sia P_w(v) la proj ortog di v su w e w c- W
+Allora v-w=(v-Pw(v)) +(Pw(v)-w)[c- W]
+Quindi ||v-w||^2=||v-Pw(v)||^2+||Pw(v)-w||^2+ 2(v-Pw(v)) [c- Wperp] *(Pw(v)-w)[c- W][=0] >=||v-Pw(v)||^2 #
+
+%title: Vettori ortogonali
+%tags: perpendicolari
+Se u1...uk sono vett di Rn non nulli e adue a due ortog allora u1...uk sono lin ind
+DIM: Sia a*u+...ak*uk=0_Rn
+Allora 0=u1.(a1u1+...akuk)=a1*(u1.u1)[!=0] +a2(u1.u2) [barrato] ... k -> a1=0
+Analogamente verifico che a2...ak=0 #
+
+%title: Procedimento di Gram-Schmidt
+%tags: vettori ortogonali
+Data una base u1...uk si puo' ottenere una base ortogonale w1...wk:
+- w1=u1
+- wi=ui-sum((vi.wj)*wj/(wj.wj), j=1->i-1) con i=1->n
+
+%title: Teorema spettrale di Cauchy
+Sia f:Rn->Rn appl lin e sia A=alpha_EE(f) [oppure qualsiasi base O.N.], esiste una base O.N. di autovettori per f <=> A^t=A [A simmetrica]
+DIM: (=>) Sia 'V'={v1...vn} base O.N. di autovett per f e siano:
+A=alpha_EE(f) e D=alpha_'V''V'(f) e' diagonale
+P=alpha_'V'E(f) ortogon P^t*P=1n
+Si ha: A=PDP^-1=PDP^t (perche' P e' ortog)
+Allora A^t=(PDP^t)^t=PDP^t=A perche' D e' diagonale #
+(<=) Sia f:Rn->Rn con A=apha_EE(f)=A^t (simmetrica)
+- tutti gli autoval di A sono reali:
+Sia apha un autoval di f
+Sia v un autoval rel ad alpha
+conj(v)..............
+
+
+%% todo: DIM T. spettrale!!!!! pdf 29
+
+%title: Prodotto vettoriale
+%tags: 3D
+v x w:=(v2w3-v3w2, v3w1-v1w3, v1w2-v2w1)
+Il produtto non ha propr commutativa e associativa
+Vale solo per spazio 3D
+
+%title: Identita' di Lagrange
+%tags: prodotto scalare vettoriale
+||v x w||^2+(v.w)^2=||v||^2*||w||^2
+||v x w||=||v||*||w||*|sin alpha|
+l'id di L. e' l'area del parallelogramma
+
+
+%% todo: DIM + generalizzata
+
+%title: Generalizzazione del prodotto scalare
+Le generaliz sono appl: g:Rn x Rn->R ; (v,w)|-->g(v,w)
+- bilineari: g(av+a'v',w)=a*g(v,w)+a'*g(v',w)
+- simmetriche g(w,v)=g(v,w)
+Si dividono in: [g(v)]
+- triviali (sempre 0)
+- Positiva se positiva se v non nullo
+- Negativa se negativa se v non nullo 
+
+%title: Teorema di Silvester
+%tags: prodotto scalare bilineare simmetrica somma diretta
+Se g:RnxRn->R e' appl bilin simm allora esistono dei sottosp W0, W+, W- di Rn tc:
+Rn=W0(+)W+(+)W-
+e a2a2 ortogonali tc:
+g ristretta a W0W0 e' triviale; “ W+W+ e' positiva; “ W-W- e' negativa
+
+%title: Identita' di Jacobi
+%tags: prodotto vettoriale scalare
+u.(vxw)+vx(wxu)+w(uxv)=0
+
+%title: Teorema di Jacobi
+%tags: prodotto scalare matrice gram
+Sia la matrice di Gram:
+G=((g(x1,x1)...g(x1,xn))...(g(xn,x1)...g(xn,xn)))
+dove g e' funzione bilineare simmetrica
+Sia delta1=g11, delta2=g11*g22-g12^2... deltan=det G
+G e' definita positiva se ogni delta>0: negativa se ogni delta<0; non definita se det G !=0
+
+%title: Sottovarieta' lineare
+%tags: spazio affine grassman unione somma
+L=0+W={P0+w / w c-W}
+dive P0 c- L e W e' sottosp reale di V
+In particolare il vuoto e' una sottovar lin
+dim L:=dim W
+Due sottovar lin L=P+W, M=Q+U si dicono:
+- incidenti se LnM!=0
+- parallele se W c_ U o U c_ W
+- sghembe se LnM=vuoto e UnW=<0> (in questo caso Q-P c/- U(+)W
+Vale la formula di Grassman per le dimensioni se LnM!=0 ovvero paralleli
+dim(LvM)=dim L + dim M - dim(LnM)
+Date due sottovar lin LvM e' la piu' piccola sottovar lin che contiene LuM e se L=P+U e M=Q+W
+LvM=P+(<Q-P>+U+W)
+- (U+W)^orto=U^orto n W^orto
+Oss: LnM!=0<=>Q-P c- U+W
+DIM: (=>)
+Sia P0 c- LnM
+allora P+u0=P0=Q+w0
+Per cui P+u0-w0=Q
+e allora Q-P=u0-w0 c- U+W
+(<=)
+Sia Q-P=u1+w1
+Applicando questo vett in P trovo
+Q=P+(Q-P)=P+u1+w1
+e sommando ad entrambi i membri il vett -w1 trovo
+Q-w1[c- M]=P+u1[c- L] c- LvM #
+
+
+%title: Distanza minima tra sottovarieta'
+Prendo Q=Q0+w0 c- M
+e P=P0-u0 c- L
+Allora Q-P=n c- U^orto n W^orto -> il vett differenza e' perp a tutte e 2 le varieta'
+Questi 2 punti hanno dist min
+DIM: Sia X c- L e Y c- M
+X=P+u esiste u c- U
+Y=Q+w esiste w c- W
+||X-Y||^2=(Q-P+w-u)^2=(n[vedi sopra]+(w-u))*([=])=||n||^2+||w-u||^2>=||n||^2=||Q-P||^2
+
+%title: Spazio euclideo
+%tags: spazio affine base ortonormale
+E^n=A^n(R) con il prodoto scalare
+Le coord sono riferite a base O.N. (spesso canonica)
+
+%% altro sul pdf 37 
